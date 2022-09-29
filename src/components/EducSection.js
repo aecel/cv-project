@@ -6,11 +6,13 @@ class EducSection extends Component {
   // }
 
   render() {
-    const { info } = this.props
+    const { education } = this.props
 
     return (
       <div>
-        <h4>Hello, I am an EducSection</h4>
+        <h4>Hello, I am Education Section</h4>
+        <div>University Name: {education.universityName}</div>
+        <div>Degree: {education.degree}</div>
       </div>
     )
   }

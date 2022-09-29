@@ -76,7 +76,7 @@ input[type="text"],
 textarea,
 input[type="date"] {
   color: gray;
-  font-size: 10px;
+  font-size: 0.7rem;
   /* margin-bottom: 20px; */
   padding: 5px 10px;
   border-radius: 10px;
@@ -93,6 +93,7 @@ input[type="date"] {
 form {
   display: flex;
   flex-direction: column;
+  margin-bottom: 16px;
   /* align-items: center; */
 }
 
@@ -101,4 +102,31 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+button {
+  all: unset;
+  font-family: inherit;
+  /* margin-top: 16px; */
+  font-weight: bold;
+  background-color: rgb(75, 75, 75);
+  border-radius: 10px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: white;
+  font-size: 0.7rem;
+}
+
+button:hover {
+  background-color: #ababab;
+}
+
+button:active {
+  background-color: #f5f5f5;
+}
+
+.delete-job-form,
+.delete-skill-form {
+  margin-bottom: 16px;
 }

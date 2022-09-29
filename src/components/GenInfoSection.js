@@ -10,11 +10,11 @@ class GenInfoSection extends Component {
 
     return (
       <div>
-        <h4>Hello, I am a GenInfoSection</h4>
-        <div>fullname {info.fullName}</div>
-        <div>role {info.role}</div>
-        <div>email {info.email}</div>
-        <div>phoneNumber {info.phoneNumber}</div>
+        <h4>Hello, I am General Info Section</h4>
+        <div>Full Name: {info.fullName}</div>
+        <div>Role: {info.role}</div>
+        <div>Email: {info.email}</div>
+        <div>Phone Number: {info.phoneNumber}</div>
       </div>
     )
   }
