@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+:root {
+  font-family: "Lato", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --gap: 24px;
+  --radius: 15px;
+  --shadow: 5px 5px rgba(0, 0, 0, 0.27);
+
+  --light-color: rgba(255, 255, 255, 0.748);
+  --main-color: rgb(6, 31, 70);
+  --dark-gray: rgb(34, 34, 34);
+  --theme-color: rgb(34, 34, 34);
+  --highlight-color: rgb(106, 46, 150);
+
+  padding: 3em 1em;
+  margin: auto;
+  line-height: 1.75;
+  background-color: var(--dark-gray);
+  color: rgb(197, 197, 197);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 3em 0 1em;
+}
+
+p,
+ul,
+ol {
+  margin-bottom: 2em;
+  color: #1d1d1d;
+  font-family: sans-serif;
+}
+
+.App {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.paper {
+  width: 500px;
+  background-color: #1d1d1d;
+  border-radius: 10px;
+  border: none;
+  padding: 2em 1em;
+  /* height: 707px; */
+}
+
+.middle-arrow {
+  border-radius: 50%;
+  border: none;
+  height: 80px;
+  width: 80px;
+  background-color: #1d1d1d;
+  align-self: center;
+}
+
+label {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  display: block;
+  font-size: 10px;
+  font-weight: bold;
+
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  /* align-self: left; */
+}
+
+input[type="text"],
+textarea,
+input[type="date"] {
+  color: gray;
+  font-size: 10px;
+  /* margin-bottom: 20px; */
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.148) inset;
+  background-color: rgb(61, 61, 61);
+  width: 93%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.center-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
