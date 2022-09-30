@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { useState } from "react"
 import CV from "./components/CV"
 import EducForm from "./components/EducForm"
 import JobForm from "./components/JobForm"
@@ -15,83 +15,76 @@ const uuid = () => {
   )
 }
 
-class App extends Component {
-  constructor(props) {
-    super(props)
+const App = () => {
+  const [info, setInfo] = useState({
+    fullName: "",
+    role: "",
+    email: "",
+    phoneNumber: "",
+  })
 
-    this.state = {
-      info: {
-        fullName: "",
-        role: "",
-        email: "",
-        phoneNumber: "",
-      },
-      jobs: [
-        {
-          company: "",
-          role: "",
-          description: "",
-          id: uuid(),
-        },
-      ],
-      education: {
-        universityName: "",
-        degree: "",
-      },
-      skills: [
-        {
-          name: "",
-          description: "",
-          id: uuid(),
-        },
-      ],
-    }
-  }
+  const [jobs, setJobs] = useState([
+    {
+      company: "",
+      role: "",
+      description: "",
+      id: uuid(),
+    },
+  ])
 
-  changeInfoText = (infoParameter, e) => {
-    const nextInfo = { ...this.state.info }
+  const [education, setEducation] = useState({
+    universityName: "",
+    degree: "",
+  })
+
+  const [skills, setSkills] = useState([
+    {
+      name: "",
+      description: "",
+      id: uuid(),
+    },
+  ])
+
+  const changeInfoText = (infoParameter, e) => {
+    const nextInfo = { ...info }
 
     nextInfo[infoParameter] = e.target.value
 
-    this.setState({
-      info: nextInfo,
-    })
+    setInfo(nextInfo)
   }
 
-  changeJobText = (jobid, jobParameter, e) => {
-    this.setState({
-      jobs: this.state.jobs.map((job) => {
+  const changeJobText = (jobid, jobParameter, e) => {
+    setJobs(
+      jobs.map((job) => {
         if (jobid === job.id) {
           job[jobParameter] = e.target.value
         }
         return job
-      }),
-    })
+      })
+    )
   }
 
-  changeEducText = (educParameter, e) => {
-    const nextEduc = { ...this.state.education }
+  const changeEducText = (educParameter, e) => {
+    const nextEduc = { ...education }
 
     nextEduc[educParameter] = e.target.value
 
-    this.setState({
-      education: nextEduc,
-    })
+    setEducation(nextEduc)
   }
 
-  changeSkillText = (skillid, skillParameter, e) => {
-    this.setState({
-      skills: this.state.skills.map((skill) => {
+  const changeSkillText = (skillid, skillParameter, e) => {
+    setSkills(
+      skills.map((skill) => {
         if (skillid === skill.id) {
           skill[skillParameter] = e.target.value
         }
         return skill
-      }),
-    })
+      })
+    )
   }
 
-  addJob = () => {
-    const nextJobs = [...this.state.jobs]
+  const addJob = () => {
+    const nextJobs = [...jobs]
 
     nextJobs.push({
       company: "",
@@ -100,13 +93,11 @@ class App extends Component {
       id: uuid(),
     })
 
-    this.setState({
-      jobs: nextJobs,
-    })
+    setJobs(nextJobs)
   }
 
-  addSkill = () => {
-    const nextSkills = [...this.state.skills]
+  const addSkill = () => {
+    const nextSkills = [...skills]
 
     nextSkills.push({
       name: "",
@@ -114,59 +105,53 @@ class App extends Component {
       id: uuid(),
     })
 
-    this.setState({
-      skills: nextSkills,
-    })
+    setSkills(nextSkills)
   }
 
-  deleteJob = (num) => {
-    this.setState({
-      jobs: this.state.jobs.filter((job) => {
+  const deleteJob = (num) => {
+    setJobs(
+      jobs.filter((job) => {
         return job.id !== num
-      }),
-    })
-  }
-
-  deleteSkill = (num) => {
-    this.setState({
-      skills: this.state.skills.filter((skill) => {
-        return skill.id !== num
-      }),
-    })
-  }
-
-  render() {
-    const { info, jobs, education, skills } = this.state
-
-    return (
-      <div className="App">
-        <div className="paper">
-          <h4>Hello, I am a form</h4>
-          <GenInfoForm changeInfoText={this.changeInfoText} />
-
-          <JobForm
-            jobs={jobs}
-            deleteJob={this.deleteJob}
-            changeJobText={this.changeJobText}
-          />
-          <button onClick={this.addJob}>Add another job</button>
-
-          <SkillForm
-            skills={skills}
-            deleteSkill={this.deleteSkill}
-            changeSkillText={this.changeSkillText}
-          />
-          <button onClick={this.addSkill}>Add another skill</button>
-
-          <EducForm changeEducText={this.changeEducText} />
-        </div>
-        {/* <div className="middle-arrow"></div> */}
-        <div className="paper">
-          <CV info={info} jobs={jobs} education={education} skills={skills} />
-        </div>
-      </div>
+      })
     )
   }
+
+  const deleteSkill = (num) => {
+    setSkills(
+      skills.filter((skill) => {
+        return skill.id !== num
+      })
+    )
+  }
+
+  return (
+    <div className="App">
+      <div className="paper">
+        <h4>Hello, I am a form</h4>
+        <GenInfoForm changeInfoText={changeInfoText} />
+
+        <JobForm
+          jobs={jobs}
+          deleteJob={deleteJob}
+          changeJobText={changeJobText}
+          addJob={addJob}
+        />
+
+        <SkillForm
+          skills={skills}
+          deleteSkill={deleteSkill}
+          changeSkillText={changeSkillText}
+          addSkill={addSkill}
+        />
+
+        <EducForm changeEducText={changeEducText} />
+      </div>
+      
+      <div className="paper">
+        <CV info={info} jobs={jobs} education={education} skills={skills} />
+      </div>
+    </div>
+  )
 }
 
 export default App
