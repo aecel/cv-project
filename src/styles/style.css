@@ -11,6 +11,8 @@
   --dark-gray: rgb(34, 34, 34);
   --theme-color: rgb(34, 34, 34);
   --highlight-color: rgb(106, 46, 150);
+  --cv-width: 600px;
+  --cv-height: calc((var(--cv-width)*297/210));
 
   padding: 3em 1em;
   margin: auto;
@@ -129,4 +131,9 @@ button:active {
 .delete-job-form,
 .delete-skill-form {
   margin-bottom: 16px;
+}
+
+#cv {
+  width: var(--cv-width);
+  height: var(--cv-height);
 }

@@ -7,7 +7,7 @@ const EducForm = ({ changeEducText }) => {
       <form>
         <label htmlFor="universityName">University Name</label>
         <input
-          onChange={(e) => {
+          onBlur={(e) => {
             changeEducText("universityName", e)
           }}
           id="universityName"
@@ -15,7 +15,7 @@ const EducForm = ({ changeEducText }) => {
         />
         <label htmlFor="degree">Degree</label>
         <input
-          onChange={(e) => {
+          onBlur={(e) => {
             changeEducText("degree", e)
           }}
           id="degree"

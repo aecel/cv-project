@@ -12,7 +12,7 @@ const JobForm = ({ jobs, deleteJob, changeJobText, addJob }) => {
               <input
                 id={"companyName" + job.id}
                 type="text"
-                onChange={(e) => {
+                onBlur={(e) => {
                   changeJobText(job.id, "company", e)
                 }}
               />
@@ -20,7 +20,7 @@ const JobForm = ({ jobs, deleteJob, changeJobText, addJob }) => {
               <input
                 id={"companyRole" + job.id}
                 type="text"
-                onChange={(e) => {
+                onBlur={(e) => {
                   changeJobText(job.id, "role", e)
                 }}
               />
@@ -30,7 +30,7 @@ const JobForm = ({ jobs, deleteJob, changeJobText, addJob }) => {
               <textarea
                 id={"companyRoleDescription" + job.id}
                 type="text"
-                onChange={(e) => {
+                onBlur={(e) => {
                   changeJobText(job.id, "description", e)
                 }}
               ></textarea>

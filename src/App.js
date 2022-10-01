@@ -1,10 +1,13 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import CV from "./components/CV"
 import EducForm from "./components/EducForm"
 import JobForm from "./components/JobForm"
 import GenInfoForm from "./components/GenInfoForm"
 import SkillForm from "./components/SkillForm"
 import style from "./styles/style.css"
+import jsPDF from "jspdf"
+import Lato from "./styles/Lato-Regular-normal.js"
+import Latobold from "./styles/Lato-Bold-bold.js"
 
 const uuid = () => {
   return (
@@ -16,6 +19,8 @@ const uuid = () => {
 }
 
 const App = () => {
+  const [pdf, setPdf] = useState("")
+
   const [info, setInfo] = useState({
     fullName: "",
     role: "",
@@ -44,6 +49,35 @@ const App = () => {
       id: uuid(),
     },
   ])
+
+  useEffect(() => {
+    const myPdf = new jsPDF()
+    myPdf.getFontList()
+    // myPdf.setFont("Lato-Regular", "normal")
+    // Filled dark gray rectangle
+    myPdf.setDrawColor(0)
+    myPdf.setFillColor(29, 29, 29)
+    myPdf.rect(0, 0, 211, 30, "F")
+
+    // Filled light gray rectangle
+    myPdf.setDrawColor(0)
+    myPdf.setFillColor(197, 197, 197)
+    myPdf.rect(0, 30, 211, 267, "F")
+
+    myPdf.setFillColor("#1d1d1d")
+    myPdf.setFont("Lato-Bold", "bold")
+    myPdf.setTextColor("#c5c5c5")
+    const text = JSON.stringify(education)
+    const splitText = myPdf.splitTextToSize(text, 180)
+    myPdf.text(splitText, 10, 10)
+
+    var d = myPdf.getTextDimensions(splitText)
+    console.log(d)
+    // myPdf.text("I am a baby deer -acey", 10, 24)
+
+    setPdf(myPdf.output("datauristring", "mycv.pdf"))
+    // myPdf.save("cv.pdf")
+  }, [education])
 
   const changeInfoText = (infoParameter, e) => {
     const nextInfo = { ...info }
@@ -146,9 +180,12 @@ const App = () => {
 
         <EducForm changeEducText={changeEducText} />
       </div>
-      
-      <div className="paper">
-        <CV info={info} jobs={jobs} education={education} skills={skills} />
+
+      <div className="paper" id="cv">
+        {pdf !== "" ? (
+          <embed width="100%" height="100%" src={pdf}></embed>
+        ) : null}
+        {/* <CV info={info} jobs={jobs} education={education} skills={skills} /> */}
       </div>
     </div>
   )

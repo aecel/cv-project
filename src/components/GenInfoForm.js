@@ -9,7 +9,7 @@ const GenInfoForm = ({ changeInfoText }) => {
         <input
           id="fullName"
           type="text"
-          onChange={(e) => {
+          onBlur={(e) => {
             changeInfoText("fullName", e)
           }}
         />
@@ -17,7 +17,7 @@ const GenInfoForm = ({ changeInfoText }) => {
         <input
           id="role"
           type="text"
-          onChange={(e) => {
+          onBlur={(e) => {
             changeInfoText("role", e)
           }}
         />
@@ -25,7 +25,7 @@ const GenInfoForm = ({ changeInfoText }) => {
         <input
           id="email"
           type="text"
-          onChange={(e) => {
+          onBlur={(e) => {
             changeInfoText("email", e)
           }}
         />
@@ -33,7 +33,7 @@ const GenInfoForm = ({ changeInfoText }) => {
         <input
           id="phoneNumber"
           type="text"
-          onChange={(e) => {
+          onBlur={(e) => {
             changeInfoText("phoneNumber", e)
           }}
         />

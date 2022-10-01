@@ -12,7 +12,7 @@ const SkillForm = ({ skills, deleteSkill, changeSkillText, addSkill }) => {
               <input
                 id={"skillName" + skill.id}
                 type="text"
-                onChange={(e) => {
+                onBlur={(e) => {
                   changeSkillText(skill.id, "name", e)
                 }}
               />
@@ -23,7 +23,7 @@ const SkillForm = ({ skills, deleteSkill, changeSkillText, addSkill }) => {
               <textarea
                 id={"skillDescription" + skill.id}
                 type="text"
-                onChange={(e) => {
+                onBlur={(e) => {
                   changeSkillText(skill.id, "description", e)
                 }}
               ></textarea>
