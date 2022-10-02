@@ -11,44 +11,29 @@
   --dark-gray: rgb(34, 34, 34);
   --theme-color: rgb(34, 34, 34);
   --highlight-color: rgb(106, 46, 150);
-  --cv-width: 600px;
-  --cv-height: calc((var(--cv-width)*297/210));
+  --cv-width: 500px;
+  --cv-height: 900px;
 
-  padding: 3em 1em;
   margin: auto;
   line-height: 1.75;
   background-color: var(--dark-gray);
   color: rgb(197, 197, 197);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 3em 0 1em;
-}
-
-p,
-ul,
-ol {
-  margin-bottom: 2em;
-  color: #1d1d1d;
-  font-family: sans-serif;
-}
-
 .App {
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
+  gap: 30px;
+  justify-content: center;
 }
 
 .paper {
+  margin-top: 30px;
   width: 500px;
   background-color: #1d1d1d;
   border-radius: 10px;
   border: none;
-  padding: 2em 1em;
+  padding: 0.5em 1em 1em 1em;
   /* height: 707px; */
 }
 
@@ -136,4 +121,20 @@ button:active {
 #cv {
   width: var(--cv-width);
   height: var(--cv-height);
+}
+
+.flexdiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.normal-text {
+  font-weight: 400;
+  margin: 0;
+  color: #989898;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
 }
