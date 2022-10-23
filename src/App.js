@@ -4,7 +4,7 @@ import EducForm from "./components/EducForm"
 import JobForm from "./components/JobForm"
 import GenInfoForm from "./components/GenInfoForm"
 import SkillForm from "./components/SkillForm"
-import style from "./styles/style.css"
+import "./styles/style.css"
 import previewPdf from "./previewPdf"
 
 const uuid = () => {
