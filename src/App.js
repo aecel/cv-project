@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import CV from "./components/CV"
+// import CV from "./components/CV"
 import EducForm from "./components/EducForm"
 import JobForm from "./components/JobForm"
 import GenInfoForm from "./components/GenInfoForm"
@@ -140,39 +140,39 @@ const App = () => {
   }
 
   return (
-    <div className="App">
-      <div className="paper">
-        <h4 className="no-margin-bottom">Fill out this form</h4>
-        <h6 className="normal-text">See a preview of your CV to the right</h6>
-        <GenInfoForm changeInfoText={changeInfoText} />
-
-        <JobForm
-          jobs={jobs}
-          deleteJob={deleteJob}
-          changeJobText={changeJobText}
-          addJob={addJob}
-        />
-
-        <SkillForm
-          skills={skills}
-          deleteSkill={deleteSkill}
-          changeSkillText={changeSkillText}
-          addSkill={addSkill}
-        />
-
-        <EducForm changeEducText={changeEducText} />
-      </div>
-
-      <div className="paper" id="cv">
-        <div className="flexdiv">
-          <h4>Preview of your CV</h4>
-          <button onClick={savePdf}>Save PDF</button>
+    <div>
+      <header>CV Generator</header>
+      <div className="App">
+        <div className="paper">
+          <h4 className="no-margin-bottom">Fill out this form</h4>
+          <h6 className="normal-text">See a preview of your CV to the right</h6>
+          <GenInfoForm changeInfoText={changeInfoText} />
+          <JobForm
+            jobs={jobs}
+            deleteJob={deleteJob}
+            changeJobText={changeJobText}
+            addJob={addJob}
+          />
+          <SkillForm
+            skills={skills}
+            deleteSkill={deleteSkill}
+            changeSkillText={changeSkillText}
+            addSkill={addSkill}
+          />
+          <EducForm changeEducText={changeEducText} />
         </div>
-        {pdf !== "" ? (
-          <embed width="100%" height="85%" src={pdf}></embed>
-        ) : null}
-        {/* <CV info={info} jobs={jobs} education={education} skills={skills} /> */}
+        <div className="paper" id="cv">
+          <div className="flexdiv">
+            <h4>Preview of your CV</h4>
+            <button onClick={savePdf}>Save PDF</button>
+          </div>
+          {pdf !== "" ? (
+            <embed width="100%" height="85%" src={pdf}></embed>
+          ) : null}
+          {/* <CV info={info} jobs={jobs} education={education} skills={skills} /> */}
+        </div>
       </div>
+      <footer>Copyright © aecel 2022</footer>
     </div>
   )
 }
