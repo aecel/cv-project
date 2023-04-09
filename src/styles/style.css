@@ -95,7 +95,7 @@ label {
 input[type="text"],
 textarea,
 input[type="date"] {
-  color: gray;
+  color: white;
   font-size: 0.7rem;
   /* margin-bottom: 20px; */
   padding: 5px 10px;
